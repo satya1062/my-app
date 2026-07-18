@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 const getCurrentDate = () => {
-  const date = new date();
+  const date = new Date();
   return date.toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
