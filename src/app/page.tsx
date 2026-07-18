@@ -49,7 +49,7 @@ export default function Home() {
               width={16}
               height={16}
             />
-            Deploy Now
+            Deploy Now on Vercel
           </a>
           <a
             className={styles.secondary}
