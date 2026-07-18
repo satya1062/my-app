@@ -93,6 +93,11 @@ a.secondary {
   border-color: var(--button-secondary-border);
 }
 
+.date {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
