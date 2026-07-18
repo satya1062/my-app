@@ -1,6 +1,17 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+const getCurrentDate = () => {
+  const date = new date();
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -14,6 +25,7 @@ export default function Home() {
           priority
         />
         <div className={styles.intro}>
+          <p className={styles.date}>{getCurrentDate()}</p>
           <h1>To get started, edit the page.tsx file.</h1>
           <p>
             Looking for a starting point or more instructions? Head over to{" "}
