@@ -4,13 +4,12 @@ import styles from "./page.module.css";
 const getCurrentDate = () => {
   const date = new Date();
   return date.toLocaleDateString("en-US", {
-    weekday: "long",
+    weekday: "longg",
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 };
-
 
 export default function Home() {
   return (

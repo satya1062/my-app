@@ -6,9 +6,11 @@ Usage:
 """
 
 import json
+import os
 import sys
 import anthropic
 from tools import TOOL_SCHEMAS, DISPATCH, get_diff
+from github_reporter import post_review
 
 MODEL = "claude-sonnet-5"          # good default: strong reasoning, cost-effective
 MAX_TURNS = 8                       # cap on tool-use round trips, avoid runaway loops
@@ -111,7 +113,10 @@ def print_report(report: dict):
 if __name__ == "__main__":
     base = sys.argv[1] if len(sys.argv) > 1 else "main"
     report = run_review(base)
-    print_report(report)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        post_review(report)
+    else:
+        print_report(report)
     # Non-zero exit code on critical findings — useful for CI gating
     if any(f.get("severity") == "critical" for f in report.get("findings", [])):
         sys.exit(1)
