@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 const getCurrentDate = () => {
   const date = new Date();
   return date.toLocaleDateString("en-US", {
-    weekday: "longg",
+    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
